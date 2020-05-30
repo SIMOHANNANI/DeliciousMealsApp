@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'Screens/mealsGategoriesScreen.dart';
 import 'Screens/CategoryMealScreen.dart';
 import 'Screens/mealDetailScreen.dart';
+import 'Screens/tabsScreen.dart';
+import 'Screens/Filters.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -11,8 +12,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Delicious meals',
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        primarySwatch: Colors.red,
         accentColor: Colors.amberAccent,
+        primaryColorLight: Colors.white,
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
               headline6: TextStyle(
@@ -24,9 +26,10 @@ class MyApp extends StatelessWidget {
       // To prevent loading the rout screen but instead the given screen[The default is '/']
       initialRoute: '/',
       routes: {
-        '/': (ctx) => MealCategories(),
+        '/': (ctx) => Tabs(),
         CategoryMealScreen.routeName: (ctx) => CategoryMealScreen(),
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+        Filters.routeName:(ctx) => Filters(),
       },
     );
   }

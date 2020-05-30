@@ -11,6 +11,7 @@ class MealsList extends StatelessWidget {
   final int duration;
   final Affordability affordability;
   final Complexity complexity;
+  final Function removeMeal;
 
   MealsList({
     this.mealId,
@@ -19,10 +20,12 @@ class MealsList extends StatelessWidget {
     this.duration,
     this.affordability,
     this.complexity,
+    this.removeMeal,
   });
 
   // Convert the enumeration item to text :
-  String get complexityToText { //getter
+  String get complexityToText {
+    //getter
     if (complexity == Complexity.Simple) {
       return "Simple";
     } else if (complexity == Complexity.Challenging) {
@@ -30,18 +33,26 @@ class MealsList extends StatelessWidget {
     }
     return "Hard";
   }
+
   String get affordabilityToText {
-    if(affordability == Affordability.Affordable){
+    if (affordability == Affordability.Affordable) {
       return "Affordable";
-    }
-    else if(affordability == Affordability.Luxurious){
+    } else if (affordability == Affordability.Luxurious) {
       return "Luxurious";
     }
     return "Pricey";
   }
-
   void selectMeal(BuildContext context) {
-    Navigator.of(context).pushNamed(MealDetailScreen.routeName,arguments: mealId);
+    Navigator.of(context)
+        .pushNamed(
+      MealDetailScreen.routeName,
+      arguments: mealId,
+    )
+        .then((value) {
+      if (value != null) {
+        removeMeal(value);
+      }
+    });
   }
 
   @override
@@ -115,7 +126,7 @@ class MealsList extends StatelessWidget {
                       SizedBox(
                         width: 10.0,
                       ),
-                      Text("${duration} min"),
+                      Text("$duration min"),
                     ],
                   ),
                   Row(
@@ -126,7 +137,7 @@ class MealsList extends StatelessWidget {
                       SizedBox(
                         width: 10.0,
                       ),
-                      Text("${complexityToText}"),
+                      Text("$complexityToText"),
                     ],
                   ),
                   Row(

@@ -1,19 +1,44 @@
 import 'package:flutter/material.dart';
 import '../dummyData.dart';
 import '../Widgets/mealsList.dart';
+import '../models/meal.dart';
 
-class CategoryMealScreen extends StatelessWidget {
+class CategoryMealScreen extends StatefulWidget {
   static const routeName = 'CategoryMealScreen';
 
   @override
+  _CategoryMealScreenState createState() => _CategoryMealScreenState();
+}
+
+class _CategoryMealScreenState extends State<CategoryMealScreen> {
+  String mealTitle;
+  List<Meal> categorizedMeals;
+  bool _isInitilized = false;
+
+  @override
+  void didChangeDependencies() {
+    if (!_isInitilized) {
+      final routeArguments =
+          ModalRoute.of(context).settings.arguments as Map<String, String>;
+      final String mealId = routeArguments['id'];
+      mealTitle = routeArguments['title'];
+      categorizedMeals = DUMMY_MEALS.where((meal) {
+        return meal.categoriesId.contains(mealId);
+      }).toList();
+      _isInitilized = true;
+    }
+
+    super.didChangeDependencies();
+  }
+
+  void removeMeal(String mealId) {
+    setState(() {
+      categorizedMeals.removeWhere((element) => element.mealId == mealId);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final routeArguments =
-        ModalRoute.of(context).settings.arguments as Map<String, String>;
-    final String mealId = routeArguments['id'];
-    final String mealTitle = routeArguments['title'];
-    final categorizedMeals = DUMMY_MEALS.where((meal) {
-      return meal.categoriesId.contains(mealId);
-    }).toList();
     return Scaffold(
       appBar: AppBar(
         title: Text(mealTitle),
@@ -27,6 +52,7 @@ class CategoryMealScreen extends StatelessWidget {
             duration: categorizedMeals[index].duration,
             complexity: categorizedMeals[index].complexity,
             affordability: categorizedMeals[index].affordability,
+            removeMeal: removeMeal,
           );
         },
         itemCount: categorizedMeals.length,
