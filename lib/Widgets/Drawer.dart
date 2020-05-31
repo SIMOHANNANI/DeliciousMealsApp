@@ -52,10 +52,10 @@ class CustomizedDrawer extends StatelessWidget {
               height: 80.0,
             ),
             _buildListTile(context, "Meals", FontAwesomeIcons.utensils, () {
-              Navigator.of(context).pushNamed('/');
+              Navigator.of(context).pushReplacementNamed('/');
             }),
             _buildListTile(context, "Filters", FontAwesomeIcons.filter, () {
-              Navigator.of(context).pushNamed(Filters.routeName);
+              Navigator.of(context).pushReplacementNamed(Filters.routeName);
             }),
           ],
         ),

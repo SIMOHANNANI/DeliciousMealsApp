@@ -40,7 +40,7 @@ class _TabsState extends State<Tabs> {
                         style: TextStyle(fontFamily: 'Raleway'),
                       )),
           ),
-          endDrawer: CustomizedDrawer(),
+          drawer: CustomizedDrawer(),
           body: _bottomTabs[_selectedTabIndex],
           bottomNavigationBar: BottomNavigationBar(
               backgroundColor: Theme.of(context).primaryColor,

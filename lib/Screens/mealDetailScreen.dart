@@ -114,6 +114,7 @@ class MealDetailScreen extends StatelessWidget {
         child: FaIcon(FontAwesomeIcons.solidTrashAlt),
         onPressed: (){
           Navigator.of(context).pop(mealId);
+//          Navigator.of(context).pop();
         },
       ),
     );
