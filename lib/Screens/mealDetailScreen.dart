@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import '../dummyData.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 class MealDetailScreen extends StatelessWidget {
   static const routeName = 'MealDetailScreen';
+  final Function turnToFavorite;
+  final Function _isFavoriteMeal;
+
+  MealDetailScreen(this.turnToFavorite, this._isFavoriteMeal);
 
   Widget titleSectionHandler(BuildContext context, String text) {
     return Container(
@@ -111,11 +116,13 @@ class MealDetailScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: FaIcon(FontAwesomeIcons.solidTrashAlt),
-        onPressed: (){
-          Navigator.of(context).pop(mealId);
-//          Navigator.of(context).pop();
-        },
+        child: FaIcon(
+          _isFavoriteMeal(mealId)
+              ? FontAwesomeIcons.heart
+              : FontAwesomeIcons.heartBroken,
+          color: Colors.black,
+        ),
+        onPressed: ()=>turnToFavorite(mealId),
       ),
     );
   }

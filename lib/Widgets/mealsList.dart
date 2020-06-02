@@ -11,7 +11,6 @@ class MealsList extends StatelessWidget {
   final int duration;
   final Affordability affordability;
   final Complexity complexity;
-  final Function removeMeal;
 
   MealsList({
     this.mealId,
@@ -20,7 +19,6 @@ class MealsList extends StatelessWidget {
     this.duration,
     this.affordability,
     this.complexity,
-    this.removeMeal,
   });
 
   // Convert the enumeration item to text :
@@ -47,12 +45,13 @@ class MealsList extends StatelessWidget {
         .pushNamed(
       MealDetailScreen.routeName,
       arguments: mealId,
-    )
-        .then((value) {
-      if (value != null) {
-        removeMeal(value);
-      }
-    });
+    );
+//        .then((value) {
+//      if (value != null) {
+//        removeMeal(value);
+//      }
+//    }
+//    );
   }
 
   @override
