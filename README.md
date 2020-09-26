@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="column">
-    <img width='70' height='200' src="screenshots/1.png">
+    <img width='140' height='300' src="screenshots/1.png">
     <img src="screenshots/2.png">
 
   </div>
