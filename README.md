@@ -3,16 +3,16 @@
 
 <div class="row">
   <div class="column">
-    <img width='140' height='300' src="screenshots/1.png">
-    <img src="screenshots/2.png">
+    <img width='160' height='320' src="screenshots/1.png">
+    <img width='160' height='320'  src="screenshots/2.png">
 
   </div>
   <div class="column">
-    <img src="screenshots/3.png">
-    <img src="screenshots/4.png">
+    <img width='160' height='320'  src="screenshots/3.png">
+    <img width='160' height='320'  src="screenshots/4.png">
   </div>
   <div class="column">
-    <img src="screenshots/5.png">
+    <img width='160' height='320'  src="screenshots/5.png">
   </div>
 </div>
 
