@@ -5,11 +5,8 @@
   <div class="column">
     <img width='160' height='320' src="screenshots/1.png">
     <img width='160' height='320'  src="screenshots/2.png">
-
-  </div>
-  <div class="column">
     <img width='160' height='320'  src="screenshots/3.png">
-    <img width='160' height='320'  src="screenshots/4.png">
+     <img width='160' height='320'  src="screenshots/4.png">
   </div>
   <div class="column">
     <img width='160' height='320'  src="screenshots/5.png">
